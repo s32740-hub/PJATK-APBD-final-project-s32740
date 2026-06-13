@@ -23,8 +23,7 @@ public class ContractService(AppDbContext db) : IContractService
             c.ClientId == dto.ClientId &&
             c.SoftwareId == dto.SoftwareId &&
             c.IsActive &&
-            !c.IsSigned &&
-            c.EndDate.Date >= today);
+            (c.IsSigned || c.EndDate.Date >= today));
 
         if (hasActiveContract)
             throw new DomainException("Klient ma już aktywną (nieopłaconą) umowę na ten produkt.");
