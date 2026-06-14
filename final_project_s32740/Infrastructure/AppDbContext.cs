@@ -2,7 +2,6 @@
 
 namespace final_project_s32740.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using RevenueRecognition.API.Models;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
     public DbSet<Employee> Employees => Set<Employee>();

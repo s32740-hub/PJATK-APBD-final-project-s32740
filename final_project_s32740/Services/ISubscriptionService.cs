@@ -1,5 +1,4 @@
-﻿using RevenueRecognition.API.DTOs.Subscriptions;
-
+﻿using final_project_s32740.DTOs;
 namespace final_project_s32740.Services;
 
 public interface ISubscriptionService

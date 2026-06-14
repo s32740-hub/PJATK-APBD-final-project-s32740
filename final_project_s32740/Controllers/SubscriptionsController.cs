@@ -1,8 +1,8 @@
-﻿using final_project_s32740.Exceptions;
+﻿using final_project_s32740.DTOs;
+using final_project_s32740.Exceptions;
 using final_project_s32740.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RevenueRecognition.API.DTOs.Subscriptions;
 
 namespace final_project_s32740.Controllers;
 

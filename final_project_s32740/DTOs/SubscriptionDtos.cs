@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace RevenueRecognition.API.DTOs.Subscriptions;
+namespace final_project_s32740.DTOs;
 
 public class CreateSubscriptionDto
 {
@@ -8,7 +8,6 @@ public class CreateSubscriptionDto
     [Required] public int SoftwareId { get; set; }
     [Required] public string Name { get; set; } = string.Empty;
 
-    /// <summary>Okres odnowienia w miesiącach (1–24).</summary>
     [Range(1, 24)] public int RenewalPeriodMonths { get; set; }
 }
 

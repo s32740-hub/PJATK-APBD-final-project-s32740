@@ -1,5 +1,3 @@
-using RevenueRecognition.API.Models;
-
 namespace final_project_s32740.Models;
 
 public class Contract

@@ -1,10 +1,10 @@
-﻿using final_project_s32740.Exceptions;
+﻿using final_project_s32740.DTOs;
+using final_project_s32740.Exceptions;
 using final_project_s32740.Infrastructure;
 using final_project_s32740.Models;
 using final_project_s32740.Services;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using RevenueRecognition.API.DTOs.Subscriptions;
 using Xunit;
 
 namespace final_project_s32740.Tests;

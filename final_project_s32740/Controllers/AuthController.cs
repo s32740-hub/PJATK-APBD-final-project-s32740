@@ -1,9 +1,10 @@
 ﻿using final_project_s32740.Dtos;
 using final_project_s32740.Infrastructure;
+using final_project_s32740.Models;
 using final_project_s32740.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RevenueRecognition.API.Models;
 
 namespace final_project_s32740.Controllers;
 
@@ -37,6 +38,7 @@ public class AuthController(
 
     // POST /auth/sign-up
     [HttpPost("sign-up")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> SignUp([FromBody] SignUpRequest request)
     {
         var login = request.Login.Trim().ToLowerInvariant();
