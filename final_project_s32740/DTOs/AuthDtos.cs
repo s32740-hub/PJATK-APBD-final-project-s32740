@@ -12,5 +12,5 @@ public class SignUpRequest
 {
     [Required] public string Login { get; set; } = string.Empty;
     [Required] public string Password { get; set; } = string.Empty;
-    public string Role { get; set; } = "User"; // "User" lub "Admin"
+    public string Role { get; set; } = "User";
 }

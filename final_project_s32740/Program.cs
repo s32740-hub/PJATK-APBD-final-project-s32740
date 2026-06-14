@@ -1,7 +1,9 @@
 using System.Text;
 using final_project_s32740.Infrastructure;
+using final_project_s32740.Models;
 using final_project_s32740.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -80,6 +82,18 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await db.Database.MigrateAsync();
+
+    if (!await db.Employees.AnyAsync())
+    {
+        var hasher = new PasswordHasher<object>();
+        db.Employees.Add(new Employee
+        {
+            Login = "admin",
+            PasswordHash = hasher.HashPassword(null!, "admin123"),
+            Role = "Admin"
+        });
+        await db.SaveChangesAsync();
+    }
 }
 
 if (app.Environment.IsDevelopment())
@@ -88,7 +102,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(opt =>
     {
         opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Revenue Recognition API v1");
-        opt.RoutePrefix = string.Empty; // Swagger jako strona główna
+        opt.RoutePrefix = string.Empty;
     });
 }
 
