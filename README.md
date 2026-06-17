@@ -102,8 +102,8 @@ Wszystkie endpointy wymagają zalogowania
 - Nadpłata powyżej `TotalPrice` = błąd 400
 - Po osiągnięciu 100% kwoty = `IsSigned=true` = kontrakt staje się przychodem
 - Nie można usunąć podpisanego kontraktu
-- Przedział między StartDate a EndDate musi wynosić co najmniej 3 dni i co najwyżej 30 dni
-Walidacja odbywa się w ContractService przy tworzeniu kontraktu - przekroczenie któregoś z limitów skutkuje błędem 400
+- `DurationDays` musi wynosić od **3 do 30** — walidacja przez atrybut `[Range(3, 30)]` na `CreateContractDto`, sprawdzana automatycznie przez ASP.NET Core (model validation) przed dotarciem żądania do `ContractService`; przekroczenie limitu skutkuje błędem 400
+- `StartDate` = data dzisiejsza (UTC), `EndDate` = `StartDate + DurationDays` - klient nie podaje dat, tylko liczbę dni
 
 
 ### Subskrypcje - `/subscriptions`
